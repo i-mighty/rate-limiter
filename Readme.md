@@ -2,7 +2,7 @@
 
 Created by Josiah Adegboye.
 
-Made with ❤️, Express, Docker, Redis and MongoDB.
+Made with ❤️, Express, Docker, Redis MongoDB, k6, InfluxDB and Grafana.
 
 ## How to run
 

@@ -52,7 +52,7 @@ yarn run limit-test
 Or directly run the bash script:
 
 ```
-yarn run limit-test
+bash limit-test.sh
 ```
 
 Running either of the above from the project root folder runs the k6 test scripts.

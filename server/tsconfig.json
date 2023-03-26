@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es6",
+    "moduleResolution": "node",
+    "lib": ["es6", "DOM"],
+    "allowJs": true,
+    "outDir": "build",
+    "baseUrl": "./src",
+    "paths": {
+      "@src/*": ["*"] // resolve any `~/foo/bar` to `<baseUrl>/foo/bar`
+    },
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["./src/**/*.ts"],
+  "ts-node": { "esm": true, "require": ["tsconfig-paths/register"] }
+}

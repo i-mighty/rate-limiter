@@ -1,0 +1,17 @@
+{
+  "name": "url-shortner",
+  "version": "1.0.0",
+  "description": "Simple Url shortner",
+  "main": "src/index.ts",
+  "scripts": {
+    "server-build": "cd ./server && yarn build",
+    "server-start": "cd ./server && yarn start",
+    "server-dev": "cd ./server && yarn run dev",
+    "server-install": "cd ./server && yarn",
+    "install": "yarn run server-install",
+    "limit-test": "bash limit-test.sh"
+  },
+  "dependencies": {
+    "k6": "^0.0.0"
+  }
+}

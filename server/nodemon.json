@@ -1,0 +1,6 @@
+{
+  "watch": ["src"],
+  "ext": ".ts,.js",
+  "ignore": [],
+  "exec": "NODE_PATH=./src ts-node --esm ./src/index.ts"
+}

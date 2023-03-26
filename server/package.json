@@ -1,0 +1,84 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "A basic typescript app starter for newbies in 2019.",
+  "main": "build/src/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "rimraf ./build && tsc",
+    "dev": "nodemon",
+    "start": "yarn run build && node build/src/index.js",
+    "lint": "eslint . --ext .ts",
+    "prettier-format": "prettier --config .prettierrc src/**/*.ts --write",
+    "prettier-watch": "onchange 'src/**/*.ts' -- prettier --write {{changed}}",
+    "test": "cross-env NODE_ENV=test jest  --forceExit --maxWorkers=1",
+    "migrate-up": "migrate-mongo up",
+    "migrate-create": "migrate-mongo create",
+    "migrate-down": "migrate-mongo down",
+    "migrate-status": "migrate-mongo status"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier-format && npm run lint"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.7",
+    "@types/express-jwt": "0.0.42",
+    "@types/jest": "^26.0.4",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/multer": "^1.4.3",
+    "@types/nanoid": "^2.1.0",
+    "@types/node": "^12.7.2",
+    "@types/supertest": "^2.0.10",
+    "@types/valid-url": "^1.0.3",
+    "@typescript-eslint/eslint-plugin": "^2.21.0",
+    "@typescript-eslint/parser": "^2.21.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "jest": "^26.1.0",
+    "nodemon": "^1.19.1",
+    "onchange": "^6.1.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.0",
+    "supertest": "^4.0.2",
+    "ts-jest": "^26.1.3",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.2",
+    "typescript": "^3.6.2"
+  },
+  "dependencies": {
+    "@types/migrate-mongo": "^7.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.7",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "leaky-bucket": "^4.1.4",
+    "migrate-mongo": "^7.2.2",
+    "mongoose": "^7.0.3",
+    "multer": "^1.4.2",
+    "nanoid": "^3.1.10",
+    "redis": "^4.6.5",
+    "redis-bucket": "^2.0.0",
+    "valid-url": "^1.0.9"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    }
+  }
+}

@@ -43,6 +43,16 @@ To run tests, first start all the services by running
 docker-compose up
 ```
 
+Next migrate DB with fake data by running
+
+```
+cd server && yarn migrate-up
+```
+
+You can also create more migrations to run on more specific data.
+Next edit your `k6/rate_limit.js` file to replace the mock client-key, `641cfcfdbd76775d0bab39bc` with an \_id from your newly migrated clients in your mongodb.
+(NB! client-key must be added to the header else the request will return a 403)
+
 Next run (in another terminal window)
 
 ```

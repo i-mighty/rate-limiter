@@ -8,8 +8,9 @@ services:
       - DB_HOST=mongodb
       - DB=rate-limiter
       - REDIS_URI=redis://redis:6379
+      - PORT=3003
     ports:
-      - "3000:3000"
+      - "3003:3003"
     depends_on:
       - mongodb
     volumes:
@@ -33,8 +34,6 @@ services:
       - cache:/data
   k6:
     image: loadimpact/k6:latest
-    networks:
-      - k6
     ports:
       - "6565:6565"
     environment:
@@ -43,9 +42,6 @@ services:
       - ./k6:/scripts
   influxdb:
     image: influxdb:1.8
-    networks:
-      - k6
-      - grafana
     ports:
       - "8086:8086"
     environment:
@@ -54,8 +50,8 @@ services:
     image: grafana/grafana:8.5.21
     #    entrypoint: /bin/sh
     #    user: root
-    networks:
-      - grafana
+    # networks:
+    #   - grafana
     ports:
       - "3000:3000"
     environment:

@@ -3,13 +3,21 @@ import { check } from "k6";
 
 export const options = {
   scenarios: {
-    constant_request_rate: {
+    burst_rate_limit: {
       executor: "constant-arrival-rate",
       rate: 12,
       timeUnit: "1s", // 1000 iterations per second, i.e. 1000 RPS
       duration: "10s",
       preAllocatedVUs: 1, // how large the initial pool of VUs would be
       maxVUs: 1, // if the preAllocatedVUs are not enough, we can initialize more
+    },
+    monthly_rate_limit: {
+      executor: "constant-arrival-rate",
+      rate: 7,
+      timeUnit: "1s", // 1000 iterations per second, i.e. 1000 RPS
+      duration: "800s",
+      preAllocatedVUs: 1, // how large the initial pool of VUs would be
+      maxVUs: 1, // i
     },
   },
 };

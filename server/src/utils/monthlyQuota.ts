@@ -81,13 +81,9 @@ export const fetchUserMonthlyQuota = async (userId: string) => {
 
 export const persistMonthlyUsage = async (userId: string, rate: UserRate) => {
   const newUsage = rate?.monthlyTokenUsed;
-  console.log('newUsage', newUsage);
-
   if (
     Math.abs(dayjs(rate.cacheUpdated).diff(dayjs(rate.cacheAdded), 's')) >= 5
   ) {
-    console.log('newUsage-checked', newUsage);
-
     // cache is older than 5 seconds
     // we need to save to db and invalidate
     // this logic may be transferred to a worker or a cron job

@@ -17,7 +17,8 @@ export const options = {
       timeUnit: "1s", // 1000 iterations per second, i.e. 1000 RPS
       duration: "800s",
       preAllocatedVUs: 1, // how large the initial pool of VUs would be
-      maxVUs: 1, // i
+      maxVUs: 1, //
+      startTime: "10s", // make it wait for the burst test to finish
     },
   },
 };
